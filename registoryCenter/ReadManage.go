@@ -1,5 +1,8 @@
 package registoryCenter
 
-func ReadMannger() {
-	
+import "fmt"
+
+func ReadManage() {
+
+	fmt.Println("ReadManage")
 }

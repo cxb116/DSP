@@ -27,16 +27,16 @@ func main() {
 	// 写一个测试 key
 	_, err = cli.Put(ctx, "/test/hello", "world")
 	if err != nil {
-		fmt.Println("❌ Put failed:", err)
+		fmt.Println("Put failed:", err)
 		return
 	}
 
 	// 读回测试 key
 	resp, err := cli.Get(ctx, "/test/hello")
 	if err != nil {
-		fmt.Println("❌ Get failed:", err)
+		fmt.Println("Get failed:", err)
 		return
 	}
 
-	fmt.Println("✅ Etcd connected, value:", string(resp.Kvs[0].Value))
+	fmt.Println("Etcd connected, value:", string(resp.Kvs[0].Value))
 }
