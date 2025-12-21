@@ -3,6 +3,7 @@ package httpEngine
 import (
 	"context"
 	"fmt"
+	"github.com/cxb116/DSP/implment"
 	"log"
 	"net/http"
 )
@@ -29,8 +30,12 @@ func newEngineWithConfig() *Engine {
  *  初始化ETCD,获取ETCD配置数据
  *  初始化线程池
  *  初始后台配置
+ *  初始化携程
  */
 func (engine *Engine) EngineWithETCD() {
+
+	// 加载工作池初始化
+	implment.NewWorkerChannelHandler(200, 2000)
 
 }
 
