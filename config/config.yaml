@@ -1,0 +1,50 @@
+version: "1.0.0"
+#服务器类
+port: ":8080"
+# 价格加密密钥
+price_encrypt: 234567890qwertyuioplkjhgfdsazxfc
+
+
+#系统配置类
+workerSize: 1000
+taskQueue: 1000
+
+#第三方组件类
+redis:
+  #  addr: 117.72.67.186:6379
+ # addr: 127.0.0.1:6379
+  addr: 115.190.91.254:6379
+  username: root
+  password:
+  db: 0
+
+database:
+  host: 115.190.91.254
+  port: 5432
+  username: postgres
+  password: pa-admin123.com
+  dbname: pa_main
+  max_idle_conns: 10
+  max_open_conns: 100
+
+
+kafka:
+  brokers:
+    115.190.91.254:9092
+#    115.190.91.254:9093
+  frequency: 500
+  messages: 1000
+  returnSuccess: false
+  topic_ssp: topic_ssp_key
+#  topicSspResponse: topicSspResponse
+#  topicSspResponseTimeout: topicSspResponseTimeout
+#  topicDspRequest: topicDspRequest
+#  topicDspResponse: topicDspResponse
+#  topicDspResponseTimeout: topicDspResponseTimeout
+
+imsUrl: 127.0.0.1:8080/ims/show/
+clsUrl: 127.0.0.1:8080/cls/click/
+dowUrl: 127.0.0.1:8080/cls/click/
+actUrl: 127.0.0.1:8080/cls/click/
+
+
