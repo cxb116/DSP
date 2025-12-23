@@ -1,14 +1,35 @@
 package main
 
 import (
+	"context"
 	"fmt"
-	EmployeePB "github.com/cxb116/DSP/src"
+	"github.com/cxb116/DSP/global"
+	"github.com/cxb116/DSP/internal/client"
+	clientv3 "go.etcd.io/etcd/client/v3"
 )
 
 func main() {
-	employee := EmployeePB.Employee{
-		Id: 2,
+
+	global.EngineViper = client.NewClientViper()
+	global.EngineDB = client.NewClientMysql()
+	global.EngineRedis = client.NewRedisClient()
+
+	//client.InitKafkaAsyncProducer(global.EngineConfig.Kafka.Brokers)
+
+	client, err := client.NewEtcdClient()
+	if err != nil {
+		fmt.Println("链接异常 err:", err.Error())
+		return
 	}
 
-	fmt.Printf("registory", employee)
+	resp, err := client.Get(context.Background(), "/dsp/key", clientv3.WithPrefix())
+	if err != nil {
+		fmt.Println("Get err:", err.Error())
+	}
+
+	config := make(map[string]string)
+	for _, kv := range resp.Kvs {
+		config[string(kv.Key)] = string(kv.Value)
+	}
+
 }

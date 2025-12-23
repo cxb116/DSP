@@ -1,12 +1,13 @@
-package utils
+package client
 
 import (
 	"flag"
 	"fmt"
+	"github.com/cxb116/DSP/global"
 	"github.com/spf13/viper"
 )
 
-func Viper() *viper.Viper {
+func NewClientViper() *viper.Viper {
 
 	config := getConfigPath()
 

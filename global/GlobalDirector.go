@@ -1,6 +1,12 @@
 package global
 
-import "github.com/spf13/viper"
+import (
+	"github.com/IBM/sarama"
+	"github.com/cxb116/DSP/internal/config"
+	"github.com/redis/go-redis/v9"
+	"github.com/spf13/viper"
+	"gorm.io/gorm"
+)
 
 var (
 	EngineViper  *viper.Viper

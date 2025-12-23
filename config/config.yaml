@@ -19,11 +19,11 @@ redis:
   db: 0
 
 database:
-  host: 115.190.91.254
-  port: 5432
-  username: postgres
-  password: pa-admin123.com
-  dbname: pa_main
+  host: 117.72.67.186
+  port: 3306
+  username: root
+  password: Chen@666
+  dbname: ad_admin
   max_idle_conns: 10
   max_open_conns: 100
 
